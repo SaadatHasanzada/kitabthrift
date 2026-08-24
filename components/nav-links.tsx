@@ -1,0 +1,53 @@
+"use client";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { navItems } from "@/app/constants";
+
+interface NavLinksProps {
+  readonly className?: string;
+  readonly itemClassName?: string;
+  readonly activeClassName?: string;
+  readonly onClick?: () => void;
+  readonly showIcon?: boolean;
+}
+
+export default function NavLinks({
+  className = "",
+  itemClassName,
+  activeClassName = "active",
+  showIcon = false,
+  onClick,
+}: NavLinksProps) {
+  const pathname = usePathname();
+
+  return (
+    <ul
+      className={`font-bold text-2xl ${className} ${showIcon ? "text-cream" : "text-maroon-deep"}`}
+    >
+      {navItems.map(({ id, url, name, icon: Icon }) => {
+        const isActive = pathname === url;
+        return (
+          <li
+            key={id}
+            className={[
+              "underline decoration-wavy decoration-2 underline-offset-5 decoration-transparent transition-colors duration-300 hover:decoration-current",
+              itemClassName,
+              isActive && activeClassName,
+            ]
+              .filter(Boolean)
+              .join(" ")}
+          >
+            <Link
+              onClick={() => onClick?.()}
+              className="flex gap-4 items-center"
+              href={url}
+              aria-current={isActive ? "page" : undefined}
+            >
+              {showIcon && <Icon className="h-5 w-5 shrink-0" />} {name}
+            </Link>
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
