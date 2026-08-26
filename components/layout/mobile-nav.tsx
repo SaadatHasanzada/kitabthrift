@@ -1,8 +1,9 @@
 "use client";
 import { useState } from "react";
-import NavLinks from "./nav-links";
+import NavLinks from "@/components/layout/nav-links";
 import { UserRound } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
 export default function MobileNav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -50,9 +51,11 @@ export default function MobileNav() {
               className="flex flex-col font-medium text-[1.4rem] text-cream"
             />
             <div className="border-t border-border pt-6 mt-auto flex gap-3 items-center">
-              <div className="flex desktop:hidden w-9 h-9 rounded-full border border-cream items-center justify-center">
-                <UserRound className="text-cream" width={14} height={14} />
-              </div>
+              <Avatar className="flex desktop:hidden size-9 after:border-cream">
+                <AvatarFallback className="bg-transparent">
+                  <UserRound className="size-3.5 text-cream" />
+                </AvatarFallback>
+              </Avatar>
               <span className="text-[0.85rem] text-cream/75">
                 Signed in as Saadat
               </span>

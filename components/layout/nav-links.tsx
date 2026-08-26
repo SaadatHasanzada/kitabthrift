@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { navItems } from "@/app/constants";
+import { navItems } from "@/lib/constants";
 
 interface NavLinksProps {
   readonly className?: string;
