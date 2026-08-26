@@ -22,7 +22,7 @@ export default function NavLinks({
 
   return (
     <ul
-      className={`font-bold text-2xl ${className} ${showIcon ? "text-cream" : "text-maroon-deep"}`}
+      className={`font-bold text-[22px] ${className} ${showIcon ? "text-cream" : "text-maroon-deep"}`}
     >
       {navItems.map(({ id, url, name, icon: Icon }) => {
         const isActive = pathname === url;
@@ -30,7 +30,7 @@ export default function NavLinks({
           <li
             key={id}
             className={[
-              "underline decoration-wavy decoration-2 underline-offset-5 decoration-transparent transition-colors duration-300 hover:decoration-current",
+              "underline decoration-wavy decoration-2 underline-offset-7 decoration-transparent transition-colors duration-300 hover:decoration-current",
               itemClassName,
               isActive && activeClassName,
             ]
@@ -39,7 +39,7 @@ export default function NavLinks({
           >
             <Link
               onClick={() => onClick?.()}
-              className="flex gap-4 items-center"
+              className="flex gap-4 items-center leading-normal"
               href={url}
               aria-current={isActive ? "page" : undefined}
             >

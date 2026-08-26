@@ -35,7 +35,7 @@ export default function MobileNav() {
           className="w-[82%] max-w-[320px] border-0 bg-transparent shadow-none p-0 [&>button]:hidden"
         >
           <div
-            className={`flex flex-col absolute top-0 w-full h-full  bg-maroon-deep px-6 py-9 overflow-hidden transition-position duration-300 ease-in-out ${
+            className={`flex flex-col absolute top-0 w-full h-full  bg-maroon-deep px-6 py-9 md:py-15 overflow-hidden transition-position duration-300 ease-in-out ${
               isMenuOpen ? "right-0" : "-right-75"
             }`}
           >
