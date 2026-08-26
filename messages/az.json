@@ -1,0 +1,16 @@
+{
+  "Metadata": {
+    "title": "Kitabthrift",
+    "description": "Oxu həyatınız, nizamlanmış."
+  },
+  "Nav": {
+    "explore": "Kəşf et",
+    "myBooks": "Kitablarım",
+    "menu": "Menyu",
+    "search": "Bütün kitablarda axtar...",
+    "signedInAs": "{name} kimi daxil olub"
+  },
+  "MyBooksPage": {
+    "comingSoon": "Kitablarım tezliklə."
+  }
+}

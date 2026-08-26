@@ -1,4 +1,5 @@
 import { Search, UserRound } from "lucide-react";
+import { useTranslations } from "next-intl";
 import NavLinks from "@/components/layout/nav-links";
 import MobileNav from "@/components/layout/mobile-nav";
 import Logo from "@/components/layout/logo";
@@ -6,6 +7,8 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
 export default function Home() {
+  const t = useTranslations("Nav");
+
   return (
     <div className="flex flex-col flex-1 items-center justify-center bg-background font-sans">
       <main className=" overflow-hidden relative flex flex-1 w-full  flex-col items-center justify-between py-5 md:py-8 px-4 md:px-10 desktop:px-20 bg-background sm:items-start">
@@ -22,8 +25,8 @@ export default function Home() {
               <Input
                 name="Search"
                 type="text"
-                placeholder="Search all books..."
-                className="h-auto min-w-62.5 flex-1 border-0 bg-transparent p-0 font-sans text-maroon-deep placeholder:text-espresso/50 focus-visible:ring-0"
+                placeholder={t("search")}
+                className="h-auto rounded-none min-w-62.5 flex-1 border-0 bg-transparent p-0 font-sans text-base text-maroon-deep placeholder:text-espresso/50 focus-visible:ring-0"
               />
             </div>
             <Button

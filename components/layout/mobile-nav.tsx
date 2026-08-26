@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import NavLinks from "@/components/layout/nav-links";
 import { UserRound } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -7,6 +8,7 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
 export default function MobileNav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const t = useTranslations("Nav");
 
   return (
     <div className="desktop:hidden">
@@ -41,7 +43,7 @@ export default function MobileNav() {
             }`}
           >
             <span className="mb-4.5 mt-1 block text-[0.68rem] font-bold uppercase tracking-[0.16em] text-cream/55">
-              Menu
+              {t("menu")}
             </span>
             <NavLinks
               onClick={() => setIsMenuOpen(false)}
@@ -57,7 +59,7 @@ export default function MobileNav() {
                 </AvatarFallback>
               </Avatar>
               <span className="text-[0.85rem] text-cream/75">
-                Signed in as Saadat
+                {t("signedInAs", { name: "Saadat" })}
               </span>
             </div>
           </div>

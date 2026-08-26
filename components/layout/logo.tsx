@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { Caveat } from "next/font/google";
 
 const caveat = Caveat({ subsets: ["latin"], weight: ["700"] });

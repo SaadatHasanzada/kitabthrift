@@ -1,6 +1,6 @@
 "use client";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
+import { Link, usePathname } from "@/i18n/navigation";
 import { navItems } from "@/lib/constants";
 
 interface NavLinksProps {
@@ -19,12 +19,13 @@ export default function NavLinks({
   onClick,
 }: NavLinksProps) {
   const pathname = usePathname();
+  const t = useTranslations("Nav");
 
   return (
     <ul
       className={`font-bold text-[22px] ${className} ${showIcon ? "text-cream" : "text-maroon-deep"}`}
     >
-      {navItems.map(({ id, url, name, icon: Icon }) => {
+      {navItems.map(({ id, url, key, icon: Icon }) => {
         const isActive = pathname === url;
         return (
           <li
@@ -43,7 +44,7 @@ export default function NavLinks({
               href={url}
               aria-current={isActive ? "page" : undefined}
             >
-              {showIcon && <Icon className="h-5 w-5 shrink-0" />} {name}
+              {showIcon && <Icon className="h-5 w-5 shrink-0" />} {t(key)}
             </Link>
           </li>
         );

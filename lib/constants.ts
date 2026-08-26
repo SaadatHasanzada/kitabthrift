@@ -4,8 +4,8 @@ export const navItems = [
   {
     id: 1,
     url: "/",
-    name: "Explore",
+    key: "explore",
     icon: Compass,
   },
-  { id: 2, url: "/my-books", name: "My Books", icon: Library },
-];
+  { id: 2, url: "/my-books", key: "myBooks", icon: Library },
+] as const;
