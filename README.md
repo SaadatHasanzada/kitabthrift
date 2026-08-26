@@ -3,6 +3,12 @@
 Your reading life, organized. A Next.js book app, fully localized in English and
 Azerbaijani.
 
+> **🚧 Early development.** This is a learning-in-public project and it's being built
+> from the ground up. What's in place today is the foundation: the design system,
+> layout and navigation, and the full internationalization setup across `en` / `az`.
+> The book features themselves aren't built yet — `/my-books` is still a placeholder.
+> Structure and APIs will change.
+
 ## Stack
 
 - **Next.js 16** (App Router) · **React 19** · **TypeScript**

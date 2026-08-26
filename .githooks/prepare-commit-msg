@@ -1,0 +1,25 @@
+#!/bin/sh
+# Draft a commit message with Claude from the staged diff.
+#
+# Skips: merges, squashes, amends, and any commit that already has a message
+# (so `git commit -m "..."` always wins).
+# Degrades quietly: if the `claude` CLI isn't installed, you just get the normal
+# empty commit template.
+#
+# Enabled via: git config core.hooksPath .githooks
+
+# $2 is the message source: "message" (-m/-F), "merge", "squash", "commit" (amend).
+# Empty means a plain `git commit` — the only case we want to draft for.
+[ -n "$2" ] && exit 0
+
+command -v claude >/dev/null 2>&1 || exit 0
+
+diff=$(git diff --cached --stat; echo; git diff --cached)
+[ -z "$diff" ] && exit 0
+
+msg=$(printf '%s' "$diff" | claude -p --model haiku \
+  "Write a Conventional Commits message for this staged diff. First line: type(scope): summary, imperative mood, max 72 chars. Add a short body only if the reason for the change isn't obvious from the diff itself. Output only the commit message, no preamble, no backticks." 2>/dev/null) || exit 0
+
+[ -z "$msg" ] && exit 0
+
+printf '%s\n\n%s\n' "$msg" "$(cat "$1")" > "$1"
