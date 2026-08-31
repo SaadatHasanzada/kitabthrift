@@ -51,6 +51,16 @@ they don't auto-load — read them as files):
 - Env vars use the current key naming: `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`, not `ANON_KEY`.
   The secret key and Google client secret never leave the server.
 
+## File layout
+
+- `app/` holds **routes only** — pages, layouts, route handlers. Nothing else.
+- `lib/` holds shared server code: `lib/supabase/` (clients + proxy helper),
+  `lib/actions/` (Server Actions), constants, utils.
+- Colocate an action next to its page only when exactly one page uses it.
+- Every `"use server"` export is a callable HTTP endpoint. The proxy does **not** protect it —
+  Server Functions are POSTs to the route they're used on, so a matcher exclusion silently skips
+  them. Verify auth inside each action.
+
 ## Database rules
 
 - **RLS: `(select auth.uid())`, not bare `auth.uid()`.** Wrapped in a subquery it's evaluated

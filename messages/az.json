@@ -12,5 +12,25 @@
   },
   "MyBooksPage": {
     "comingSoon": "Kitablarım tezliklə."
+  },
+  "Auth": {
+    "signIn": "Daxil ol",
+    "signUp": "Hesab yarat",
+    "signOut": "Çıxış",
+    "continueWithGoogle": "Google ilə davam et",
+    "or": "və ya",
+    "displayName": "Ad",
+    "email": "E-poçt",
+    "password": "Şifrə",
+    "noAccount": "Hesabınız yoxdur?",
+    "haveAccount": "Artıq hesabınız var?",
+    "checkEmail": "Hesabınızı təsdiqləmək üçün e-poçtunuzu yoxlayın.",
+    "required": "Bu sahə tələb olunur.",
+    "emailInvalid": "Bu, e-poçt ünvanına oxşamır.",
+    "displayNameTooShort": "Ən azı 2 simvol istifadə edin.",
+    "invalidCredentials": "E-poçt və ya şifrə yanlışdır.",
+    "emailInUse": "Bu e-poçt ilə hesab artıq mövcuddur.",
+    "weakPassword": "Ən azı 6 simvol istifadə edin.",
+    "genericError": "Xəta baş verdi. Yenidən cəhd edin."
   }
 }

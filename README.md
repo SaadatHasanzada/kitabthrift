@@ -4,15 +4,17 @@ Your reading life, organized. A Next.js book app, fully localized in English and
 Azerbaijani.
 
 > **🚧 Early development.** This is a learning-in-public project and it's being built
-> from the ground up. What's in place today is the foundation: the design system,
-> layout and navigation, and the full internationalization setup across `en` / `az`.
-> The book features themselves aren't built yet — `/my-books` is still a placeholder.
-> Structure and APIs will change.
+> from the ground up. In place today: the design system, layout and navigation, the full
+> internationalization setup across `en` / `az`, and authentication in progress. The book
+> features themselves aren't built yet — `/my-books` is still a placeholder. Structure and
+> APIs will change.
 
 ## Stack
 
 - **Next.js 16** (App Router) · **React 19** · **TypeScript**
 - **next-intl 4** for internationalization — `en` / `az`
+- **Supabase** — Postgres, auth (email + Google), file storage
+- **Zod 4** for input validation in Server Actions
 - **Tailwind CSS 4** with shadcn/ui and Base UI primitives
 - **Fraunces** via `next/font`
 
@@ -54,6 +56,30 @@ translation calls — `useTranslations` works on both sides of the boundary.
 `getTranslations` is reserved for where hooks are illegal, which here is only
 `generateMetadata`.
 
+### One proxy, two jobs
+
+`proxy.ts` composes next-intl and Supabase into a single response: next-intl decides the
+rewrite or redirect, then `updateSession` writes the refreshed auth cookies onto *that*
+response. Building a fresh `NextResponse.next()` — as Supabase's standalone example does —
+would discard the locale decision.
+
+Session refresh has to live here because Server Components can't write cookies, and a
+plain page load involves nothing else.
+
+### No form or state library
+
+Server Actions plus `useActionState` cover submission, pending state, and errors, and the
+forms work before JavaScript loads. Zod validates inside the action and returns *message
+keys*, not text, so errors render translated like everything else. Server data lives in
+Server Components, so there's no client cache to manage.
+
+### Open Library is the only API we store from
+
+Google's API terms prohibit building databases from their content, so book records come
+from Open Library. Search hits the API live; a book is copied into our own table only when
+someone shelves it. Azerbaijani coverage is poor in every public API, so the catalog is
+designed to grow from real use rather than from a feed.
+
 ## Project structure
 
 ```
@@ -62,15 +88,23 @@ i18n/                routing config, request config, navigation helpers
 messages/            en.json · az.json
 components/layout/   logo, nav links, mobile nav
 components/ui/       shadcn/ui primitives
-lib/                 constants and helpers
-proxy.ts             locale negotiation (middleware, renamed in Next 16)
+lib/actions/         Server Actions
+lib/validation/      Zod schemas
+lib/supabase/        browser + server clients, proxy session helper
+proxy.ts             locale negotiation + session refresh
 ```
 
 ## Getting started
 
 ```bash
 npm install
+cp .env.example .env.local   # then fill in your Supabase project values
 npm run dev
+```
+
+```
+NEXT_PUBLIC_SUPABASE_URL=https://xxxxx.supabase.co
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_...
 ```
 
 Open [http://localhost:3000](http://localhost:3000). You'll be served `/` in English, or

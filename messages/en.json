@@ -12,5 +12,25 @@
   },
   "MyBooksPage": {
     "comingSoon": "My Books coming soon."
+  },
+  "Auth": {
+    "signIn": "Sign in",
+    "signUp": "Create account",
+    "signOut": "Sign out",
+    "continueWithGoogle": "Continue with Google",
+    "or": "or",
+    "displayName": "Display name",
+    "email": "Email",
+    "password": "Password",
+    "noAccount": "Don't have an account?",
+    "haveAccount": "Already have an account?",
+    "checkEmail": "Check your email to confirm your account.",
+    "required": "This field is required.",
+    "emailInvalid": "That doesn't look like an email address.",
+    "displayNameTooShort": "Use at least 2 characters.",
+    "invalidCredentials": "That email and password don't match.",
+    "emailInUse": "An account with this email already exists.",
+    "weakPassword": "Use at least 6 characters.",
+    "genericError": "Something went wrong. Please try again."
   }
 }
