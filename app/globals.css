@@ -2,6 +2,10 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+/* No dark theme. This pins the `dark:` variant to a `.dark` class that never
+   exists, so the dark: utilities shadcn ships with stay inert. Without it,
+   Tailwind falls back to `prefers-color-scheme` and they fire on any machine
+   set to dark. */
 @custom-variant dark (&:is(.dark *));
 
 @theme {
@@ -9,57 +13,59 @@
 }
 
 :root {
-  /* Brand tokens (kitabthrift) — safe to edit by hand */
-  --cream: #fbf3de;
-  --maroon-deep: #6e1a11;
-  --gold: #d4a24c;
-  --espresso: #3d2b1f;
+  /* ---- shadcn/ui roles ------------------------------------------------ */
+  --background: oklch(96.21% 0.0234 87.53);
+  --foreground: oklch(26.93% 0.0045 48.55);
+  --card: oklch(98.34% 0.0103 84.58);
+  --card-foreground: oklch(26.93% 0.0045 48.55);
+  --popover: oklch(98.34% 0.0103 84.58);
+  --popover-foreground: oklch(26.93% 0.0045 48.55);
+  --primary: oklch(63.76% 0.1261 53.68);
+  --primary-foreground: oklch(96.21% 0.0234 87.53);
+  --secondary: oklch(89.61% 0.0541 84.52);
+  --secondary-foreground: oklch(37.89% 0.0817 52.61);
+  --muted: oklch(89.61% 0.0541 84.52);
+  --muted-foreground: oklch(55.38% 0.0112 48.51);
+  --accent: oklch(91.27% 0.03 124.82);
+  --accent-foreground: oklch(40.21% 0.0547 126.49);
+  --destructive: oklch(49.72% 0.1541 33.2);
+  --destructive-foreground: oklch(96.21% 0.0234 87.53);
+  --border: oklch(40.83% 0.1267 31.52 / 0.22);
+  --input: oklch(40.83% 0.1267 31.52 / 0.22);
+  --ring: oklch(63.76% 0.1261 53.68);
+  --radius: 1rem;
 
-  /* shadcn/ui tokens ("base-nova" theme) — prefer `npx shadcn` to update */
-  --background: var(--cream); /* bridged to brand palette */
-  --foreground: #2a1f18; /* bridged to brand palette */
-  --border: oklch(0.922 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: var(--maroon-deep); /* bridged to brand palette */
-  --primary-foreground: var(--cream); /* bridged to brand palette */
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  /* ---- brand ---------------------------------------------------------- */
+  --brand: oklch(40.83% 0.1267 31.52); /* maroon wordmark + headings */
+  --brand-foreground: oklch(96.21% 0.0234 87.53); /* cream, for text on brand */
+  --brand-accent: oklch(73.97% 0.1193 78.68); /* gold, active item on brand */
+  --brand-ink: oklch(37.89% 0.0817 52.61); /* field labels */
+
+  /* ---- decorative blobs behind the auth panels ------------------------ */
+  --blob-sage: oklch(89.37% 0.0583 125.3);
+  --blob-sand: oklch(86.18% 0.0717 84.36);
+
+  /* ---- fills showing through while a cover loads ---------------------- */
+  --cover-clay: oklch(66.62% 0.0832 65.58);
+  --cover-sage: oklch(67.48% 0.0594 125.66);
+  --cover-linen: oklch(67.94% 0.0539 77.7); /* also "left unfinished" */
+
+  /* ---- password strength ramp: weak / fair(primary) / strong ---------- */
+  --strength-weak: oklch(71.22% 0.1131 55.33);
+  --strength-strong: oklch(67.48% 0.0594 125.66);
+
+  /* ---- reading statuses ----------------------------------------------- */
+  --status-want: oklch(89.61% 0.0541 84.52);
+  --status-reading: oklch(63.76% 0.1261 53.68);
+  --status-finished: oklch(67.48% 0.0594 125.66);
+  --status-left: oklch(67.94% 0.0539 77.7);
 }
 
 @theme inline {
-  /* Brand tokens */
-  --color-cream: var(--cream);
-  --color-maroon-deep: var(--maroon-deep);
-  --color-gold: var(--gold);
-  --color-espresso: var(--espresso);
   --font-sans: var(--font-fraunces);
   --font-heading: var(--font-fraunces);
 
-  /* shadcn/ui tokens */
+  /* shadcn/ui roles */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-border: var(--border);
@@ -76,21 +82,35 @@
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* brand */
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-brand-accent: var(--brand-accent);
+  --color-brand-ink: var(--brand-ink);
+
+  /* decorative */
+  --color-blob-sage: var(--blob-sage);
+  --color-blob-sand: var(--blob-sand);
+
+  /* cover placeholders */
+  --color-cover-clay: var(--cover-clay);
+  --color-cover-sage: var(--cover-sage);
+  --color-cover-linen: var(--cover-linen);
+
+  /* password strength */
+  --color-strength-weak: var(--strength-weak);
+  --color-strength-strong: var(--strength-strong);
+
+  /* reading statuses */
+  --color-status-want: var(--status-want);
+  --color-status-reading: var(--status-reading);
+  --color-status-finished: var(--status-finished);
+  --color-status-left: var(--status-left);
+
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -104,46 +124,23 @@
   text-decoration-color: currentColor;
 }
 .active-mobile {
-  color: var(--gold);
-}
-
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  color: var(--brand-accent);
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: var(--brand);
+    font-family: inherit;
+    font-size: inherit;
   }
   body {
     @apply bg-background text-foreground;

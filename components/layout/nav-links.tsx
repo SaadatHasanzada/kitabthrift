@@ -23,7 +23,7 @@ export default function NavLinks({
 
   return (
     <ul
-      className={`font-bold text-[22px] ${className} ${showIcon ? "text-cream" : "text-maroon-deep"}`}
+      className={`font-bold text-[22px] ${className} ${showIcon ? "text-brand-foreground" : "text-brand"}`}
     >
       {navItems.map(({ id, url, key, icon: Icon }) => {
         const isActive = pathname === url;

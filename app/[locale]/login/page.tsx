@@ -1,5 +1,3 @@
-function login() {
+export default function login() {
   return "hello";
 }
-
-export default login;

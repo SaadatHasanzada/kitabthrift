@@ -21,13 +21,13 @@ export default function MobileNav() {
               className="w-6 h-6 flex justify-center flex-col gap-1.25 relative z-999 "
             >
               <span
-                className={`w-full h-0.5 inline-block transition-transform duration-300 ease-out  ${isMenuOpen ? "bg-cream translate-y-1.75 -rotate-45" : "bg-maroon-deep"}`}
+                className={`w-full h-0.5 inline-block transition-transform duration-300 ease-out  ${isMenuOpen ? "bg-brand-foreground translate-y-1.75 -rotate-45" : "bg-brand"}`}
               ></span>
               <span
-                className={`bg-maroon-deep w-full h-0.5 inline-block transition-opacity duration-200 ${isMenuOpen ? "opacity-0" : "opacity-100"}`}
+                className={`bg-brand w-full h-0.5 inline-block transition-opacity duration-200 ${isMenuOpen ? "opacity-0" : "opacity-100"}`}
               ></span>
               <span
-                className={`w-full h-0.5 inline-block transition-transform duration-300 ease-out ${isMenuOpen ? "bg-cream -translate-y-1.75 rotate-45" : "bg-maroon-deep"}`}
+                className={`w-full h-0.5 inline-block transition-transform duration-300 ease-out ${isMenuOpen ? "bg-brand-foreground -translate-y-1.75 rotate-45" : "bg-brand"}`}
               ></span>
             </button>
           }
@@ -38,27 +38,27 @@ export default function MobileNav() {
           className="w-[82%] max-w-[320px] border-0 bg-transparent shadow-none p-0 [&>button]:hidden"
         >
           <div
-            className={`flex flex-col absolute top-0 w-full h-full  bg-maroon-deep px-6 py-9 md:py-15 overflow-hidden transition-position duration-300 ease-in-out ${
+            className={`flex flex-col absolute top-0 w-full h-full  bg-brand px-6 py-9 md:py-15 overflow-hidden transition-position duration-300 ease-in-out ${
               isMenuOpen ? "right-0" : "-right-75"
             }`}
           >
-            <span className="mb-4.5 mt-1 block text-[0.68rem] font-bold uppercase tracking-[0.16em] text-cream/55">
+            <span className="mb-4.5 mt-1 block text-[0.68rem] font-bold uppercase tracking-[0.16em] text-brand-foreground">
               {t("menu")}
             </span>
             <NavLinks
               onClick={() => setIsMenuOpen(false)}
               activeClassName="active-mobile"
               showIcon={true}
-              itemClassName="border-t border-border py-4"
-              className="flex flex-col font-medium text-[1.4rem] text-cream"
+              itemClassName="border-t border-brand-foreground/20 py-4"
+              className="flex flex-col font-medium text-[1.4rem] text-brand-foreground"
             />
-            <div className="border-t border-border pt-6 mt-auto flex gap-3 items-center">
-              <Avatar className="flex desktop:hidden size-9 after:border-cream">
+            <div className="border-t border-brand-foreground/20 pt-6 mt-auto flex gap-3 items-center">
+              <Avatar className="flex desktop:hidden size-9 after:border-brand-foreground after:mix-blend-normal">
                 <AvatarFallback className="bg-transparent">
-                  <UserRound className="size-3.5 text-cream" />
+                  <UserRound className="size-3.5 text-brand-foreground" />
                 </AvatarFallback>
               </Avatar>
-              <span className="text-[0.85rem] text-cream/75">
+              <span className="text-[0.85rem] text-brand-foreground">
                 {t("signedInAs", { name: "Saadat" })}
               </span>
             </div>

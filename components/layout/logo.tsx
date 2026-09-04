@@ -15,7 +15,7 @@ export default function Logo() {
         height={80}
       />
       <span
-        className={`${caveat.className} text-maroon-deep text-3xl desktop:text-4xl`}
+        className={`${caveat.className} text-brand text-3xl desktop:text-4xl`}
       >
         kitabthrift
       </span>

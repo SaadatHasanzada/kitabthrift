@@ -20,21 +20,21 @@ export default function Home() {
 
           <NavLinks className="hidden desktop:flex gap-10" />
           <div className="flex w-full desktop:w-auto gap-6 items-center flex-1  max-w-xl desktop:flex-0 min-w-0 desktop:min-w-auto">
-            <div className="w-full min-w-0 desktop:w-auto flex items-center gap-2 rounded-full bg-gold/30 px-4 desktop:px-5 py-2 desktop:py-3">
-              <Search className="w-5 h-5 shrink-0 text-maroon-deep" />
+            <div className="w-full min-w-0 desktop:w-auto flex items-center gap-2 rounded-full bg-secondary px-4 desktop:px-5 py-2 desktop:py-3">
+              <Search className="w-5 h-5 shrink-0 text-brand" />
               <Input
                 name="Search"
                 type="text"
                 placeholder={t("search")}
-                className="h-auto rounded-none min-w-62.5 flex-1 border-0 bg-transparent p-0 font-sans text-base text-maroon-deep placeholder:text-espresso/50 focus-visible:ring-0"
+                className="h-auto rounded-none min-w-62.5 flex-1 border-0 bg-transparent p-0 font-sans text-base text-brand placeholder:text-muted-foreground focus-visible:ring-0"
               />
             </div>
             <Button
               variant="outline"
               size="icon-lg"
-              className="hidden desktop:inline-flex size-12 rounded-full border-maroon-deep bg-transparent hover:bg-maroon-deep/10 hover:border-maroon-deep/40 cursor-pointer"
+              className="hidden desktop:inline-flex size-12 rounded-full border-brand bg-transparent hover:bg-brand/10 hover:border-brand/40 cursor-pointer"
             >
-              <UserRound className="size-6.5 text-maroon-deep" />
+              <UserRound className="size-6.5 text-brand" />
             </Button>
           </div>
         </nav>
