@@ -1,7 +1,10 @@
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
+import { requireUser } from "@/lib/auth";
 
-export default function MyBooksPage() {
-  const t = useTranslations("MyBooksPage");
+export default async function MyBooksPage() {
+  await requireUser();
+
+  const t = await getTranslations("MyBooksPage");
 
   return (
     <div className="flex flex-col flex-1 items-center justify-center bg-background font-sans">
