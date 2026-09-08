@@ -2,7 +2,7 @@ import { Search, UserRound } from "lucide-react";
 import { useTranslations } from "next-intl";
 import NavLinks from "@/components/layout/nav-links";
 import MobileNav from "@/components/layout/mobile-nav";
-import Logo from "@/components/layout/logo";
+import { Logo } from "@/components/layout/logo";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 

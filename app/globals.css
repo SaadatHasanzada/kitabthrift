@@ -10,6 +10,7 @@
 
 @theme {
   --breakpoint-desktop: 68rem;
+  --container-page: 90rem; /* 1440px — the app's outer content width */
 }
 
 :root {
@@ -64,6 +65,7 @@
 @theme inline {
   --font-sans: var(--font-fraunces);
   --font-heading: var(--font-fraunces);
+  --font-logo: var(--font-caveat);
 
   /* shadcn/ui roles */
   --color-background: var(--background);

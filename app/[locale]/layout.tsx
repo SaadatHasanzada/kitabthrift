@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces } from "next/font/google";
+import { Caveat, Fraunces } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
@@ -8,6 +8,12 @@ import "../globals.css";
 const fraunces = Fraunces({
   variable: "--font-fraunces",
   subsets: ["latin"],
+});
+
+const caveat = Caveat({
+  variable: "--font-caveat",
+  subsets: ["latin"],
+  weight: ["700"],
 });
 
 export function generateStaticParams() {
@@ -31,10 +37,13 @@ export default async function RootLayout({
   const locale = await getLocale();
 
   return (
-    <html lang={locale} className={`${fraunces.variable} h-full antialiased`}>
+    <html
+      lang={locale}
+      className={`${fraunces.variable} ${caveat.variable} h-full antialiased`}
+    >
       <body className="min-h-full flex flex-col">
         <NextIntlClientProvider>
-          <div className="max-w-360 mx-auto w-full">{children}</div>
+          <main className="max-w-page mx-auto w-full">{children}</main>
         </NextIntlClientProvider>
       </body>
     </html>
