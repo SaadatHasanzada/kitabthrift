@@ -2,7 +2,11 @@
 
 import { createClient } from "@/lib/supabase/server";
 import { getLocale } from "next-intl/server";
-import { loginSchema, registerSchema } from "@/lib/validation/auth";
+import {
+  loginSchema,
+  LoginValues,
+  registerSchema,
+} from "@/lib/validation/auth";
 import { revalidatePath } from "next/cache";
 import { redirect } from "@/i18n/navigation";
 import { headers } from "next/headers";
@@ -10,14 +14,11 @@ import { redirect as externalRedirect } from "next/navigation";
 
 export type AuthState = { errorKey?: string; ok?: string } | null;
 
-export async function login(
-  _p: AuthState,
-  formData: FormData,
-): Promise<AuthState> {
+export async function login(values: LoginValues): Promise<AuthState> {
   const supabase = await createClient();
   const locale = await getLocale();
 
-  const parsed = loginSchema.safeParse(Object.fromEntries(formData));
+  const parsed = loginSchema.safeParse(values);
   if (!parsed.success) {
     return { errorKey: "genericError" };
   }

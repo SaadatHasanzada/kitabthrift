@@ -2,6 +2,7 @@ import { Logo } from "@/components/layout/logo";
 import { GoogleButton } from "@/components/auth/google-button";
 import { AuthHeader } from "@/components/auth/auth-header";
 import { AuthDivider } from "@/components/auth/auth-divider";
+import { LoginForm } from "@/components/auth/login-form";
 
 export default function Login() {
   return (
@@ -16,6 +17,7 @@ export default function Login() {
           />
           <GoogleButton />
           <AuthDivider />
+          <LoginForm />
         </div>
       </section>
       <section></section>

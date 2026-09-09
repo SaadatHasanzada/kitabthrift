@@ -9,3 +9,5 @@ export const navItems = [
   },
   { id: 2, url: "/my-books", key: "myBooks", icon: Library },
 ] as const;
+
+export const EMAIL_PLACEHOLDER = "you@gmail.com";

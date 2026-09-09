@@ -29,8 +29,8 @@
   --muted-foreground: oklch(55.38% 0.0112 48.51);
   --accent: oklch(91.27% 0.03 124.82);
   --accent-foreground: oklch(40.21% 0.0547 126.49);
-  --destructive: oklch(49.72% 0.1541 33.2);
-  --destructive-foreground: oklch(96.21% 0.0234 87.53);
+  --destructive: oklch(50.562% 0.18754 27.222);
+  /* --destructive-foreground: oklch(96.21% 0.0234 87.53); */
   --border: oklch(40.83% 0.1267 31.52 / 0.22);
   --input: oklch(40.83% 0.1267 31.52 / 0.22);
   --ring: oklch(63.76% 0.1261 53.68);
@@ -40,7 +40,7 @@
   --brand: oklch(40.83% 0.1267 31.52); /* maroon wordmark + headings */
   --brand-foreground: oklch(96.21% 0.0234 87.53); /* cream, for text on brand */
   --brand-accent: oklch(73.97% 0.1193 78.68); /* gold, active item on brand */
-  --brand-ink: oklch(37.89% 0.0817 52.61); /* field labels */
+  --brand-ink: oklch(37.853% 0.08338 51.102); /* field labels */
 
   /* ---- decorative blobs behind the auth panels ------------------------ */
   --blob-sage: oklch(89.37% 0.0583 125.3);

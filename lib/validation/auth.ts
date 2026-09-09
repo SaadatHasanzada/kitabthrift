@@ -21,3 +21,6 @@ export const registerSchema = z.object({
     .min(1, { error: "required" })
     .min(6, { error: "weakPassword" }),
 });
+
+export type LoginValues = z.infer<typeof loginSchema>;
+export type RegisterValues = z.infer<typeof registerSchema>;
