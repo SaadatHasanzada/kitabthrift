@@ -7,7 +7,7 @@ import { LoginForm } from "@/components/auth/login-form";
 export default function Login() {
   return (
     <div className="flex flex-col desktop:flex-row">
-      <section className="flex flex-col gap-3 py-5 md:py-8 px-4 md:px-10 desktop:px-20">
+      <section className="flex flex-col gap-3 py-5 md:py-8 px-4 md:px-10 desktop:px-20 max-w-200">
         <Logo />
         <div className="flex flex-col gap-6">
           <AuthHeader
@@ -20,7 +20,7 @@ export default function Login() {
           <LoginForm />
         </div>
       </section>
-      <section></section>
+      <section className="max-w-200"></section>
     </div>
   );
 }

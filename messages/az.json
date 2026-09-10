@@ -38,7 +38,8 @@
     "forgotPassword": "Şifrənizi unutmusunuz?",
     "keepMeSignedIn": "Bu cihazda məni daxil olmuş saxla",
     "newHere": "Yenisiniz?",
-    "createAccount": "Hesab yaradın"
+    "createAccount": "Hesab yaradın",
+    "passwordPlaceholder": "Şifrəniz"
   },
   "Validation": {
     "required": "Bu sahə tələb olunur.",

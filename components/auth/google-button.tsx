@@ -10,7 +10,7 @@ export function GoogleButton() {
       type="submit"
       variant="outline"
       size="lg"
-      className="items-center gap-3 text-base font-bold text-foreground h-auto py-2.5 w-full max-w-150 mx-auto bg-card rounded-full"
+      className="w-full items-center gap-3 font-bold text-foreground bg-card"
     >
       <Image
         className="w-5 h-5"
