@@ -1,10 +1,12 @@
 "use client";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import NavLinks from "@/components/layout/nav-links";
+
 import { UserRound } from "lucide-react";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+
+import NavLinks from "@/components/layout/nav-links";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 export default function MobileNav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

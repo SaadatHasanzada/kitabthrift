@@ -1,5 +1,6 @@
-import { createServerClient } from "@supabase/ssr";
 import type { NextRequest, NextResponse } from "next/server";
+
+import { createServerClient } from "@supabase/ssr";
 
 /**
  * Refreshes the Supabase auth token and writes the resulting cookies onto

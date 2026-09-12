@@ -1,10 +1,12 @@
-import { Search, UserRound } from "lucide-react";
 import { useTranslations } from "next-intl";
-import NavLinks from "@/components/layout/nav-links";
-import MobileNav from "@/components/layout/mobile-nav";
+
+import { Search, UserRound } from "lucide-react";
+
 import { Logo } from "@/components/layout/logo";
-import { Input } from "@/components/ui/input";
+import MobileNav from "@/components/layout/mobile-nav";
+import NavLinks from "@/components/layout/nav-links";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 export default function Home() {
   const t = useTranslations("Nav");

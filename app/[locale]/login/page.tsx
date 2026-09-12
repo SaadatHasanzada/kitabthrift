@@ -1,8 +1,8 @@
-import { Logo } from "@/components/layout/logo";
-import { GoogleButton } from "@/components/auth/google-button";
-import { AuthHeader } from "@/components/auth/auth-header";
 import { AuthDivider } from "@/components/auth/auth-divider";
+import { AuthHeader } from "@/components/auth/auth-header";
+import { GoogleButton } from "@/components/auth/google-button";
 import { LoginForm } from "@/components/auth/login-form";
+import { Logo } from "@/components/layout/logo";
 
 export default function Login() {
   return (

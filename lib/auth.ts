@@ -1,6 +1,7 @@
 import { getLocale } from "next-intl/server";
-import { createClient } from "@/lib/supabase/server";
+
 import { redirect } from "@/i18n/navigation";
+import { createClient } from "@/lib/supabase/server";
 
 export async function requireUser() {
   const supabase = await createClient();

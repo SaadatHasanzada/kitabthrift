@@ -1,22 +1,21 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import { Controller, useForm } from "react-hook-form";
+import { useTranslations } from "next-intl";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { Input } from "@/components/ui/input";
+import { PasswordField } from "@/components/auth/password-field";
+import { Button } from "@/components/ui/button";
 import {
   Field,
   FieldError,
-  FieldLabel,
   FieldGroup,
+  FieldLabel,
 } from "@/components/ui/field";
-
+import { Input } from "@/components/ui/input";
 import { EMAIL_PLACEHOLDER } from "@/lib/constants";
 import { loginSchema, type LoginValues } from "@/lib/validation/auth";
-
-import { Button } from "@/components/ui/button";
-import { PasswordField } from "@/components/auth/password-field";
 
 export function LoginForm() {
   const t = useTranslations("Auth");

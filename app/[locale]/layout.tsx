@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { Caveat, Fraunces } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getTranslations } from "next-intl/server";
+
 import { routing } from "@/i18n/routing";
+
 import "../globals.css";
 
 const fraunces = Fraunces({

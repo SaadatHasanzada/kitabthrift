@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+
 import { Separator } from "@/components/ui/separator";
 
 export function AuthDivider() {

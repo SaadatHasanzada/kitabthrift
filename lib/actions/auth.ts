@@ -1,16 +1,17 @@
 "use server";
 
-import { createClient } from "@/lib/supabase/server";
+import { revalidatePath } from "next/cache";
+import { headers } from "next/headers";
+import { redirect as externalRedirect } from "next/navigation";
 import { getLocale } from "next-intl/server";
+
+import { redirect } from "@/i18n/navigation";
+import { createClient } from "@/lib/supabase/server";
 import {
   loginSchema,
   LoginValues,
   registerSchema,
 } from "@/lib/validation/auth";
-import { revalidatePath } from "next/cache";
-import { redirect } from "@/i18n/navigation";
-import { headers } from "next/headers";
-import { redirect as externalRedirect } from "next/navigation";
 
 export type AuthState = { errorKey?: string; ok?: string } | null;
 

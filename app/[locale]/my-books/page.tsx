@@ -1,4 +1,5 @@
 import { getTranslations } from "next-intl/server";
+
 import { requireUser } from "@/lib/auth";
 
 export default async function MyBooksPage() {

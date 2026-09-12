@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { Controller } from "react-hook-form";
 import type { Control, FieldPath, FieldValues } from "react-hook-form";
+import { Controller } from "react-hook-form";
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
+
 import { Eye, EyeOff } from "lucide-react";
 
 import { Field, FieldError, FieldLabel } from "@/components/ui/field";
@@ -14,6 +14,7 @@ import {
   InputGroupButton,
   InputGroupInput,
 } from "@/components/ui/input-group";
+import { Link } from "@/i18n/navigation";
 
 interface PasswordFieldProps<T extends FieldValues> {
   readonly control: Control<T>;
