@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 
+import { MutedText } from "@/components/ui/muted-text";
 import { Separator } from "@/components/ui/separator";
 
 export function AuthDivider() {
@@ -8,9 +9,9 @@ export function AuthDivider() {
   return (
     <div className="flex items-center gap-3">
       <Separator className="flex-1" />
-      <span className="text-xs font-bold text-foreground/60">
+      <MutedText as="span" size="xs">
         {t("or").toUpperCase()}
-      </span>
+      </MutedText>
       <Separator className="flex-1" />
     </div>
   );

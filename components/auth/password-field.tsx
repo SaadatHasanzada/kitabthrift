@@ -14,7 +14,7 @@ import {
   InputGroupButton,
   InputGroupInput,
 } from "@/components/ui/input-group";
-import { Link } from "@/i18n/navigation";
+import { TextLink } from "@/components/ui/text-link";
 
 interface PasswordFieldProps<T extends FieldValues> {
   readonly control: Control<T>;
@@ -38,12 +38,7 @@ export function PasswordField<T extends FieldValues>({
         <Field data-invalid={fieldState.invalid}>
           <div className="flex items-center justify-between">
             <FieldLabel htmlFor="password">{t("password")}</FieldLabel>
-            <Link
-              href="/forgot-password"
-              className="text-sm text-brand-ink hover:text-ring"
-            >
-              {t("forgotPassword")}
-            </Link>
+            <TextLink href="/forgot-password">{t("forgotPassword")}</TextLink>
           </div>
           <InputGroup>
             <InputGroupInput
