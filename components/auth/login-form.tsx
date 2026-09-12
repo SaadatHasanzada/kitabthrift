@@ -5,24 +5,20 @@ import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { Input } from "@/components/ui/input";
-import { Field, FieldError, FieldLabel, FieldGroup } from "@/components/ui/field";
+import {
+  Field,
+  FieldError,
+  FieldLabel,
+  FieldGroup,
+} from "@/components/ui/field";
 
 import { EMAIL_PLACEHOLDER } from "@/lib/constants";
 import { loginSchema, type LoginValues } from "@/lib/validation/auth";
-import { useState } from "react";
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupButton,
-  InputGroupInput,
-} from "@/components/ui/input-group";
-import { Eye, EyeOff } from "lucide-react";
-import { Link } from "@/i18n/navigation";
+
 import { Button } from "@/components/ui/button";
+import { PasswordField } from "@/components/auth/password-field";
 
 export function LoginForm() {
-  const [showPassword, setShowPassword] = useState(false);
-
   const t = useTranslations("Auth");
   const tv = useTranslations("Validation");
 
@@ -64,49 +60,7 @@ export function LoginForm() {
             </Field>
           )}
         />
-        <Controller
-          name="password"
-          control={form.control}
-          render={({ field, fieldState }) => (
-            <Field data-invalid={fieldState.invalid}>
-              <div className="flex items-center justify-between">
-                <FieldLabel htmlFor="password">{t("password")}</FieldLabel>
-                <Link
-                  href="/forgot-password"
-                  className="text-sm text-brand-ink hover:text-ring"
-                >
-                  {t("forgotPassword")}
-                </Link>
-              </div>
-              <InputGroup>
-                <InputGroupInput
-                  type={showPassword ? "text" : "password"}
-                  {...field}
-                  id={field.name}
-                  aria-invalid={fieldState.invalid}
-                  placeholder={t("passwordPlaceholder")}
-                  autoComplete="off"
-                  className="px-5"
-                />
-                <InputGroupAddon align="inline-end">
-                  <InputGroupButton
-                    onClick={() => setShowPassword(!showPassword)}
-                  >
-                    {showPassword ? (
-                      <EyeOff className="size-4.5" />
-                    ) : (
-                      <Eye className="size-4.5" />
-                    )}
-                  </InputGroupButton>
-                </InputGroupAddon>
-              </InputGroup>
-
-              {fieldState.error?.message && (
-                <FieldError>{tv(fieldState.error.message)}</FieldError>
-              )}
-            </Field>
-          )}
-        />
+        <PasswordField control={form.control} name="password" />
       </FieldGroup>
       <Button type="submit" size="lg" className="mt-8 w-full">
         {t("signIn")}
