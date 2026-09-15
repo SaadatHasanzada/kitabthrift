@@ -3,8 +3,8 @@
 #
 # Skips: merges, squashes, amends, and any commit that already has a message
 # (so `git commit -m "..."` always wins).
-# Degrades quietly: if the `claude` CLI isn't installed, you just get the normal
-# empty commit template.
+# Never blocks a commit: if anything fails you get the normal empty template,
+# and the reason is printed to the terminal instead of being swallowed.
 #
 # Enabled via: git config core.hooksPath .githooks
 
@@ -14,11 +14,25 @@
 
 command -v claude >/dev/null 2>&1 || exit 0
 
-diff=$(git diff --cached --stat; echo; git diff --cached)
-[ -z "$diff" ] && exit 0
+[ -z "$(git diff --cached --name-only)" ] && exit 0
 
-msg=$(printf '%s' "$diff" | claude -p --model haiku \
-  "Write a Conventional Commits message for this staged diff. First line: type(scope): summary, imperative mood, max 72 chars. Add a short body only if the reason for the change isn't obvious from the diff itself. Output only the commit message, no preamble, no backticks." 2>/dev/null) || exit 0
+# The file list shows every change, including binaries and lockfiles.
+stat=$(git diff --cached --stat)
+
+# Full contents only for source files. Assets and lockfiles are listed above but
+# their bodies are skipped — a single traced SVG deletion once produced a 1.2 MB
+# diff, far past the model's input limit.
+body=$(git diff --cached -- . \
+  ':(exclude)*.svg' ':(exclude)*.png' ':(exclude)*.jpg' ':(exclude)*.jpeg' \
+  ':(exclude)*.webp' ':(exclude)*.gif' ':(exclude)*.ico' \
+  ':(exclude)package-lock.json' ':(exclude)*.lock' | head -c 60000)
+
+prompt="Write a Conventional Commits message for this staged diff. First line: type(scope): summary, imperative mood, max 72 chars. Add a short body only if the reason for the change isn't obvious from the diff itself. The diff body may be truncated; use the file list for the full picture. Output only the commit message, no preamble, no backticks."
+
+if ! msg=$(printf '%s\n\n%s' "$stat" "$body" | claude -p --model haiku "$prompt" 2>&1); then
+  echo "prepare-commit-msg: couldn't draft a message — $msg" >&2
+  exit 0
+fi
 
 [ -z "$msg" ] && exit 0
 

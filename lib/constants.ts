@@ -11,3 +11,15 @@ export const navItems = [
 ] as const;
 
 export const EMAIL_PLACEHOLDER = "you@gmail.com";
+
+export const QUOTE_MARKS = {
+  open: "“",
+  close: "”",
+} as const;
+
+export const LOGIN_QUOTE = {
+  author: "Clarissa Pinkola Estés",
+  bookName: "Women Who Run With the Wolves",
+  quote:
+    "Go out in the woods, go out. If you don't go out in the woods nothing will ever happen and your life will never begin.",
+};

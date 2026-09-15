@@ -16,7 +16,7 @@
   "General": {
     "or": "Or",
     "bookDataFromOpenLib": "Book data from Open Library.",
-    "searchTitlesFromOpenLib": "Search millions of titles from Open Library and keep every one you meant to get to in a single place"
+    "searchTitlesFromOpenLib": "Search millions of titles from Open Library and keep every one you meant to get to in a single place."
   },
   "Auth": {
     "signIn": "Sign in",
@@ -46,12 +46,5 @@
     "emailInvalid": "That doesn't look like an email address.",
     "weakPassword": "Use at least 6 characters.",
     "displayNameTooShort": "Use at least 2 characters."
-  },
-  "Quotes": {
-    "VW": {
-      "text": "Books continue each other, in spite of our habit of judging them separately.",
-      "author": "Virginia Woolf",
-      "book": "A Room of One's Own"
-    }
   }
 }

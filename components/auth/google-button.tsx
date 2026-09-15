@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 
+import googleIcon from "@/assets/images/google-icon.svg";
 import { Button } from "@/components/ui/button";
 
 export function GoogleButton() {
@@ -13,13 +14,7 @@ export function GoogleButton() {
       size="lg"
       className="w-full items-center gap-3 font-bold text-foreground bg-card"
     >
-      <Image
-        className="w-5 h-5"
-        src="/google-icon.svg"
-        alt="Continue with google"
-        width={20}
-        height={20}
-      />
+      <Image className="size-5" src={googleIcon} alt="Google icon" />
       {t("continueWithGoogle")}
     </Button>
   );

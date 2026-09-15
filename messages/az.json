@@ -46,12 +46,5 @@
     "emailInvalid": "Bu, e-poçt ünvanına oxşamır.",
     "weakPassword": "Ən azı 6 simvol istifadə edin.",
     "displayNameTooShort": "Ən azı 2 simvol istifadə edin."
-  },
-  "Quotes": {
-    "VW": {
-      "text": "Kitablar bir-birini davam etdirir, biz onları ayrı-ayrı mühakimə etməyə adət etsək də.",
-      "author": "Virciniya Vulf",
-      "book": "Özünə məxsus otaq"
-    }
   }
 }
