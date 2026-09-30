@@ -8,7 +8,8 @@
     "myBooks": "Kitablarım",
     "menu": "Menyu",
     "search": "Bütün kitablarda axtar...",
-    "signedInAs": "{name} kimi daxil olub"
+    "signedInAs": "{name} kimi daxil olub",
+    "changeLanguage": "Dili dəyiş"
   },
   "MyBooksPage": {
     "comingSoon": "Kitablarım tezliklə."

@@ -7,6 +7,7 @@ import { BookStack } from "@/components/auth/book-stack";
 import { GoogleButton } from "@/components/auth/google-button";
 import { LoginForm } from "@/components/auth/login-form";
 import { LoginQuote } from "@/components/auth/login-quote";
+import { LanguageSelector } from "@/components/layout/language-selector";
 import { Logo } from "@/components/layout/logo";
 import { MutedText } from "@/components/ui/muted-text";
 import { TextLink } from "@/components/ui/text-link";
@@ -18,7 +19,10 @@ export default function Login() {
   return (
     <>
       <AuthPanel>
-        <Logo />
+        <div className="flex justify-between items-center">
+          <Logo />
+          <LanguageSelector />
+        </div>
         <div className="flex flex-col gap-6">
           <AuthHeader
             eyebrow="welcomeBack"

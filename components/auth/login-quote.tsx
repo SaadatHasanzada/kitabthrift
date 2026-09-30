@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 
 import { MutedText } from "@/components/ui/muted-text";
-import { LOGIN_QUOTE, QUOTE_MARKS } from "@/lib/constants";
+import { loginQuote, QUOTE_MARKS } from "@/lib/constants";
 
 export function LoginQuote() {
   const tg = useTranslations("General");
@@ -12,12 +12,12 @@ export function LoginQuote() {
         <blockquote className="text-2xl font-bold leading-[1.24] tracking-[-0.01em] text-pretty text-accent-foreground desktop:text-[28px]">
           <p>
             {QUOTE_MARKS.open}
-            {LOGIN_QUOTE.quote}
+            {loginQuote.quote}
             {QUOTE_MARKS.close}
           </p>
         </blockquote>
         <figcaption className="mt-3.5 block text-base font-medium text-accent-foreground">
-          {LOGIN_QUOTE.author}, <cite>{LOGIN_QUOTE.bookName}</cite>
+          {loginQuote.author}, <cite>{loginQuote.bookName}</cite>
         </figcaption>
       </figure>
       <MutedText className="mt-5 max-w-77.5 font-medium desktop:mt-6">
