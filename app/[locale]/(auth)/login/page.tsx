@@ -7,7 +7,7 @@ import { BookStack } from "@/components/auth/book-stack";
 import { GoogleButton } from "@/components/auth/google-button";
 import { LoginForm } from "@/components/auth/login-form";
 import { LoginQuote } from "@/components/auth/login-quote";
-import { LanguageSelector } from "@/components/layout/language-selector";
+import { LocaleSwitcher } from "@/components/layout/locale-switcher";
 import { Logo } from "@/components/layout/logo";
 import { MutedText } from "@/components/ui/muted-text";
 import { TextLink } from "@/components/ui/text-link";
@@ -21,7 +21,7 @@ export default function Login() {
       <AuthPanel>
         <div className="flex justify-between items-center">
           <Logo />
-          <LanguageSelector />
+          <LocaleSwitcher />
         </div>
         <div className="flex flex-col gap-6">
           <AuthHeader
@@ -32,13 +32,15 @@ export default function Login() {
           <GoogleButton />
           <AuthDivider />
           <LoginForm />
-          <p>
-            {t("newHere")}{" "}
-            <TextLink variant="emphasis" href="/create-account">
-              {t("createAccount")}
-            </TextLink>
-          </p>
-          <MutedText size="sm">{tg("bookDataFromOpenLib")}</MutedText>
+          <div>
+            <p className="mb-1">
+              {t("newHere")}{" "}
+              <TextLink variant="emphasis" href="/create-account">
+                {t("createAccount")}
+              </TextLink>
+            </p>
+            <MutedText size="sm">{tg("bookDataFromOpenLib")}</MutedText>
+          </div>
         </div>
       </AuthPanel>
 

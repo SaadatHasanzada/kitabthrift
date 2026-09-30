@@ -17,7 +17,7 @@ import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { languageNames } from "@/lib/constants";
 
-export function LanguageSelector() {
+export function LocaleSwitcher() {
   const pathname = usePathname();
   const router = useRouter();
   const params = useParams();

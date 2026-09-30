@@ -40,7 +40,9 @@
     "keepMeSignedIn": "Keep me signed in on this device",
     "newHere": "New here?",
     "createAccount": "Create an account",
-    "passwordPlaceholder": "Your password"
+    "passwordPlaceholder": "Your password",
+    "loginQuote": "Go out in the woods, go out. If you don't go out in the woods nothing will ever happen and your life will never begin.",
+    "loginQuoteBookName": "Women Who Run With the Wolves"
   },
   "Validation": {
     "required": "This field is required.",

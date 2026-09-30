@@ -17,7 +17,7 @@
   "General": {
     "or": "və ya",
     "bookDataFromOpenLib": "Kitab məlumatları Open Library-dən.",
-    "searchTitlesFromOpenLib": "Open Library-nin milyonlarla kitabı arasında axtarın və oxumaq istədiyiniz hər kitabı bir yerdə saxlayın"
+    "searchTitlesFromOpenLib": "Open Library-nin milyonlarla kitabı arasında axtarın və oxumaq istədiyiniz hər kitabı bir yerdə saxlayın."
   },
   "Auth": {
     "signIn": "Daxil ol",
@@ -40,11 +40,13 @@
     "keepMeSignedIn": "Bu cihazda məni daxil olmuş saxla",
     "newHere": "Yenisiniz?",
     "createAccount": "Hesab yaradın",
-    "passwordPlaceholder": "Şifrəniz"
+    "passwordPlaceholder": "Şifrəniz",
+    "loginQuote": "Çıx meşəyə get, get. Əgər meşəyə getməsən, heç nə olmayacaq və həyatın heç vaxt başlamayacaq.",
+    "loginQuoteBookName": "Qurdlarla Qaçan Qadınlar"
   },
   "Validation": {
-    "required": "Bu sahə tələb olunur.",
-    "emailInvalid": "Bu, e-poçt ünvanına oxşamır.",
+    "required": "Bu xananı doldurmaq tələb olunur.",
+    "emailInvalid": "Bu, doğru e-poçt ünvanı deyil.",
     "weakPassword": "Ən azı 6 simvol istifadə edin.",
     "displayNameTooShort": "Ən azı 2 simvol istifadə edin."
   }
