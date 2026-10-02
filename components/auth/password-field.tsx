@@ -19,11 +19,17 @@ import { TextLink } from "@/components/ui/text-link";
 interface PasswordFieldProps<T extends FieldValues> {
   readonly control: Control<T>;
   readonly name: FieldPath<T>;
+  readonly autoComplete: "current-password" | "new-password";
+  readonly placeholder: string;
+  readonly showForgotPassword?: boolean;
 }
 
 export function PasswordField<T extends FieldValues>({
   control,
   name,
+  autoComplete,
+  placeholder,
+  showForgotPassword = false,
 }: PasswordFieldProps<T>) {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -38,7 +44,9 @@ export function PasswordField<T extends FieldValues>({
         <Field data-invalid={fieldState.invalid}>
           <div className="flex items-center justify-between">
             <FieldLabel htmlFor="password">{t("password")}</FieldLabel>
-            <TextLink href="/forgot-password">{t("forgotPassword")}</TextLink>
+            {showForgotPassword && (
+              <TextLink href="/forgot-password">{t("forgotPassword")}</TextLink>
+            )}
           </div>
           <InputGroup>
             <InputGroupInput
@@ -46,8 +54,8 @@ export function PasswordField<T extends FieldValues>({
               {...field}
               id={field.name}
               aria-invalid={fieldState.invalid}
-              placeholder={t("passwordPlaceholder")}
-              autoComplete="current-password"
+              placeholder={placeholder}
+              autoComplete={autoComplete}
             />
             <InputGroupAddon align="inline-end">
               <InputGroupButton onClick={() => setShowPassword(!showPassword)}>

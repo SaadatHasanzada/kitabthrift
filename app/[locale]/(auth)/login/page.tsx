@@ -35,7 +35,7 @@ export default function Login() {
           <div>
             <p className="mb-1">
               {t("newHere")}{" "}
-              <TextLink variant="emphasis" href="/create-account">
+              <TextLink variant="emphasis" href="/register">
                 {t("createAccount")}
               </TextLink>
             </p>

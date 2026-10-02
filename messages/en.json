@@ -25,6 +25,7 @@
     "signOut": "Sign out",
     "continueWithGoogle": "Continue with Google",
     "displayName": "Display name",
+    "displayNamePlaceholder": "What should we call you?",
     "email": "Email",
     "password": "Password",
     "noAccount": "Don't have an account?",
@@ -41,13 +42,24 @@
     "newHere": "New here?",
     "createAccount": "Create an account",
     "passwordPlaceholder": "Your password",
+    "newPasswordPlaceholder": "At least 8 characters",
     "loginQuote": "Go out in the woods, go out. If you don't go out in the woods nothing will ever happen and your life will never begin.",
-    "loginQuoteBookName": "Women Who Run With the Wolves"
+    "loginQuoteBookName": "Women Who Run With the Wolves",
+    "freeToKeep": "free, and yours to keep",
+    "startReadingList": "Start your reading list.",
+    "oneAccountSync": "One account keeps your shelf in sync across every device you read on.",
+    "threeThingsRightAway": "Three things you get right away.",
+    "searchOpenLibraryTitle": "Search all of Open Library",
+    "searchOpenLibraryDescription": "Millions of titles, covers and authors, no catalogue of our own.",
+    "fourSimpleStatusesTitle": "Four simple statuses",
+    "fourSimpleStatusesDescription": "Want to read, reading, finished, left unfinished. Move a book along in one tap.",
+    "syncedToAccountTitle": "Synced to your account",
+    "syncedToAccountDescription": "Your shelf follows you between phone and laptop."
   },
   "Validation": {
     "required": "This field is required.",
     "emailInvalid": "That doesn't look like an email address.",
-    "weakPassword": "Use at least 6 characters.",
+    "weakPassword": "Use at least 8 characters.",
     "displayNameTooShort": "Use at least 2 characters."
   }
 }

@@ -15,22 +15,23 @@ import {
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { EMAIL_PLACEHOLDER } from "@/lib/constants";
-import { loginSchema, type LoginValues } from "@/lib/validation/auth";
+import { registerSchema, type RegisterValues } from "@/lib/validation/auth";
 
-export function LoginForm() {
+export function RegisterForm() {
   const t = useTranslations("Auth");
   const tv = useTranslations("Validation");
 
-  const form = useForm<LoginValues>({
-    resolver: zodResolver(loginSchema),
+  const form = useForm<RegisterValues>({
+    resolver: zodResolver(registerSchema),
     mode: "all",
     defaultValues: {
       email: "",
       password: "",
+      displayName: "",
     },
   });
 
-  function onSubmit(data: LoginValues) {
+  function onSubmit(data: RegisterValues) {
     // Do something with the form values.
     console.log(data);
   }
@@ -38,6 +39,27 @@ export function LoginForm() {
   return (
     <form onSubmit={form.handleSubmit(onSubmit)}>
       <FieldGroup>
+        <Controller
+          name="displayName"
+          control={form.control}
+          render={({ field, fieldState }) => (
+            <Field data-invalid={fieldState.invalid}>
+              <FieldLabel htmlFor={field.name}>{t("displayName")}</FieldLabel>
+              <Input
+                {...field}
+                id={field.name}
+                aria-invalid={fieldState.invalid}
+                type="text"
+                placeholder={t("displayNamePlaceholder")}
+                autoComplete="name"
+                className="px-5"
+              />
+              {fieldState.error?.message && (
+                <FieldError>{tv(fieldState.error.message)}</FieldError>
+              )}
+            </Field>
+          )}
+        />
         <Controller
           name="email"
           control={form.control}
@@ -62,13 +84,12 @@ export function LoginForm() {
         <PasswordField
           control={form.control}
           name="password"
-          autoComplete="current-password"
-          placeholder={t("passwordPlaceholder")}
-          showForgotPassword
+          autoComplete="new-password"
+          placeholder={t("newPasswordPlaceholder")}
         />
       </FieldGroup>
       <Button type="submit" size="lg" className="mt-8 w-full">
-        {t("signIn")}
+        {t("createAccount")}
       </Button>
     </form>
   );

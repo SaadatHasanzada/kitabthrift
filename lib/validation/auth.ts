@@ -19,7 +19,7 @@ export const registerSchema = z.object({
   password: z
     .string()
     .min(1, { error: "required" })
-    .min(6, { error: "weakPassword" }),
+    .min(8, { error: "weakPassword" }),
 });
 
 export type LoginValues = z.infer<typeof loginSchema>;

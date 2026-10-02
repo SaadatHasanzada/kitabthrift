@@ -25,6 +25,7 @@
     "signOut": "Çıxış",
     "continueWithGoogle": "Google ilə davam et",
     "displayName": "Ad",
+    "displayNamePlaceholder": "Sizi necə adlandıraq?",
     "email": "E-poçt",
     "password": "Şifrə",
     "noAccount": "Hesabınız yoxdur?",
@@ -41,13 +42,24 @@
     "newHere": "Yenisiniz?",
     "createAccount": "Hesab yaradın",
     "passwordPlaceholder": "Şifrəniz",
+    "newPasswordPlaceholder": "Ən azı 8 simvol",
     "loginQuote": "Çıx meşəyə get, get. Əgər meşəyə getməsən, heç nə olmayacaq və həyatın heç vaxt başlamayacaq.",
-    "loginQuoteBookName": "Qurdlarla Qaçan Qadınlar"
+    "loginQuoteBookName": "Qurdlarla Qaçan Qadınlar",
+    "freeToKeep": "pulsuz və sizə məxsus",
+    "startReadingList": "Oxu siyahınızı başladın.",
+    "oneAccountSync": "Rəfinizi oxuduğunuz bütün cihazlarda sinxron saxlayacaq bir hesab.",
+    "threeThingsRightAway": "Dərhal əldə edəcəyiniz üç şey.",
+    "searchOpenLibraryTitle": "Open Library-də axtarın",
+    "searchOpenLibraryDescription": "Milyonlarla kitab adı, üz qabığı və müəllif — öz kataloqumuz yoxdur.",
+    "fourSimpleStatusesTitle": "Dörd sadə status",
+    "fourSimpleStatusesDescription": "Oxunacaq, oxunur, bitib, yarımçıq qalıb. Bir kitabı bir toxunuşla irəli aparın.",
+    "syncedToAccountTitle": "Hesabınıza sinxronlaşdırılıb",
+    "syncedToAccountDescription": "Rəfiniz telefon və noutbuk arasında sizi izləyir."
   },
   "Validation": {
     "required": "Bu xananı doldurmaq tələb olunur.",
     "emailInvalid": "Bu, doğru e-poçt ünvanı deyil.",
-    "weakPassword": "Ən azı 6 simvol istifadə edin.",
+    "weakPassword": "Ən azı 8 simvol istifadə edin.",
     "displayNameTooShort": "Ən azı 2 simvol istifadə edin."
   }
 }

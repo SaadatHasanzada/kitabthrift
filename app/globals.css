@@ -138,9 +138,9 @@
   input:-webkit-autofill:hover,
   input:-webkit-autofill:focus,
   input:-webkit-autofill:active {
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: var(--brand);
+    -webkit-text-fill-color: var(--foreground) !important;
+    -webkit-box-shadow: 0 0 0 1000px var(--card) inset !important;
+    box-shadow: 0 0 0 1000px var(--card) inset !important;
     font-family: inherit;
     font-size: inherit;
   }
