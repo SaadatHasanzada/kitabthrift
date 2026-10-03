@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { headers } from "next/headers";
 import { redirect as externalRedirect } from "next/navigation";
+import { Locale } from "next-intl";
 import { getLocale } from "next-intl/server";
 
 import { redirect } from "@/i18n/navigation";
@@ -69,9 +70,8 @@ export async function register(
   return { ok: "checkEmail" };
 }
 
-export async function signInWithGoogle() {
+export async function signInWithGoogle(locale: Locale) {
   const supabase = await createClient();
-  const locale = await getLocale();
   const origin = (await headers()).get("origin");
 
   const { data } = await supabase.auth.signInWithOAuth({
