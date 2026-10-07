@@ -34,6 +34,9 @@
     "invalidCredentials": "That email and password don't match.",
     "emailInUse": "An account with this email already exists.",
     "genericError": "Something went wrong. Please try again.",
+    "tooManyRequests": "Please wait a minute before requesting another email.",
+    "passwordRejected": "Choose a different password.",
+    "confirmExpired": "That confirmation link has expired or was already used.",
     "welcomeBack": "welcome back, reader",
     "signInToShelf": "Sign in to your shelf.",
     "yourReadingList": "Your reading list, statuses and finished books are waiting where you left them.",
@@ -60,6 +63,12 @@
     "required": "This field is required.",
     "emailInvalid": "That doesn't look like an email address.",
     "weakPassword": "Use at least 8 characters.",
+    "passwordTooLong": "Use at most 72 characters.",
+    "passwordMissingLowercase": "Add a lowercase letter.",
+    "passwordMissingUppercase": "Add an uppercase letter.",
+    "passwordMissingNumber": "Add a number.",
+    "passwordMissingSymbol": "Add a symbol.",
+    "passwordMatchesProfile": "Password can't be your email or name.",
     "displayNameTooShort": "Use at least 2 characters."
   }
 }

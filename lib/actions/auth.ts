@@ -3,10 +3,13 @@
 import { revalidatePath } from "next/cache";
 import { headers } from "next/headers";
 import { redirect as externalRedirect } from "next/navigation";
-import { Locale } from "next-intl";
+import { hasLocale, Locale } from "next-intl";
 import { getLocale } from "next-intl/server";
 
+import { isAuthApiError, isAuthWeakPasswordError } from "@supabase/supabase-js";
+
 import { redirect } from "@/i18n/navigation";
+import { routing } from "@/i18n/routing";
 import { createClient } from "@/lib/supabase/server";
 import {
   loginSchema,
@@ -15,6 +18,13 @@ import {
 } from "@/lib/validation/auth";
 
 export type AuthState = { errorKey?: string; ok?: string } | null;
+
+function resolveSignUpErrorKey(error: unknown): string {
+  if (isAuthWeakPasswordError(error)) return "passwordRejected";
+  if (isAuthApiError(error) && error.code === "over_email_send_rate_limit")
+    return "tooManyRequests";
+  return "genericError";
+}
 
 export async function login(values: LoginValues): Promise<AuthState> {
   const supabase = await createClient();
@@ -45,29 +55,41 @@ export async function register(
 ): Promise<AuthState> {
   const supabase = await createClient();
   const origin = (await headers()).get("origin");
+  let locale = formData.get("locale");
+
+  if (!hasLocale(routing.locales, locale)) {
+    locale = routing.defaultLocale;
+  }
 
   const parsed = registerSchema.safeParse(Object.fromEntries(formData));
   if (!parsed.success) {
     return { errorKey: "genericError" };
   }
 
-  const { error } = await supabase.auth.signUp({
-    email: parsed.data.email,
-    password: parsed.data.password,
-    options: {
-      data: { display_name: parsed.data.displayName },
-      emailRedirectTo: `${origin}/api/auth/callback`,
-    },
-  });
+  try {
+    const { data, error } = await supabase.auth.signUp({
+      email: parsed.data.email,
+      password: parsed.data.password,
+      options: {
+        data: { display_name: parsed.data.displayName },
+        emailRedirectTo: `${origin}/${locale}/my-books`,
+      },
+    });
 
-  if (error) {
-    if (error.message.includes("already registered"))
+    const isEmailInUse = data.user?.identities?.length === 0;
+
+    if (isEmailInUse) {
       return { errorKey: "emailInUse" };
-    if (error.message.includes("Password")) return { errorKey: "weakPassword" };
-    return { errorKey: "genericError" };
-  }
+    }
 
-  return { ok: "checkEmail" };
+    if (error) {
+      return { errorKey: resolveSignUpErrorKey(error) };
+    }
+
+    return { ok: "checkEmail" };
+  } catch (error) {
+    return { errorKey: resolveSignUpErrorKey(error) };
+  }
 }
 
 export async function signInWithGoogle(locale: Locale) {

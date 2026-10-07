@@ -34,6 +34,9 @@
     "invalidCredentials": "E-poçt və ya şifrə yanlışdır.",
     "emailInUse": "Bu e-poçt ilə hesab artıq mövcuddur.",
     "genericError": "Xəta baş verdi. Yenidən cəhd edin.",
+    "tooManyRequests": "Başqa e-poçt istəməzdən əvvəl bir dəqiqə gözləyin.",
+    "passwordRejected": "Başqa bir şifrə seçin.",
+    "confirmExpired": "Bu təsdiq linkinin vaxtı bitib və ya artıq istifadə olunub.",
     "welcomeBack": "xoş gəldiniz, oxucu",
     "signInToShelf": "Rəfinizə daxil olun",
     "yourReadingList": "Oxu siyahınız, statuslarınız və bitirdiyiniz kitablar qaldığınız yerdə gözləyir.",
@@ -60,6 +63,12 @@
     "required": "Bu xananı doldurmaq tələb olunur.",
     "emailInvalid": "Bu, doğru e-poçt ünvanı deyil.",
     "weakPassword": "Ən azı 8 simvol istifadə edin.",
+    "passwordTooLong": "Ən çox 72 simvol istifadə edin.",
+    "passwordMissingLowercase": "Kiçik hərf əlavə edin.",
+    "passwordMissingUppercase": "Böyük hərf əlavə edin.",
+    "passwordMissingNumber": "Rəqəm əlavə edin.",
+    "passwordMissingSymbol": "Simvol əlavə edin.",
+    "passwordMatchesProfile": "Şifrə e-poçtunuz və ya adınızla eyni ola bilməz.",
     "displayNameTooShort": "Ən azı 2 simvol istifadə edin."
   }
 }

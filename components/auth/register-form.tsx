@@ -1,7 +1,9 @@
 "use client";
 
+import { startTransition, useActionState } from "react";
 import { Controller, useForm } from "react-hook-form";
-import { useTranslations } from "next-intl";
+import { useSearchParams } from "next/navigation";
+import { useLocale, useTranslations } from "next-intl";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -14,12 +16,22 @@ import {
   FieldLabel,
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { MutedText } from "@/components/ui/muted-text";
+import { register } from "@/lib/actions/auth";
 import { EMAIL_PLACEHOLDER } from "@/lib/constants";
 import { registerSchema, type RegisterValues } from "@/lib/validation/auth";
 
 export function RegisterForm() {
   const t = useTranslations("Auth");
   const tv = useTranslations("Validation");
+  const locale = useLocale();
+
+  const searchParams = useSearchParams();
+  const confirmEmailError = searchParams.get("error");
+
+  const [state, formAction, isPending] = useActionState(register, null);
+
+  const errorKey = state?.errorKey ?? confirmEmailError ?? undefined;
 
   const form = useForm<RegisterValues>({
     resolver: zodResolver(registerSchema),
@@ -32,8 +44,14 @@ export function RegisterForm() {
   });
 
   function onSubmit(data: RegisterValues) {
-    // Do something with the form values.
-    console.log(data);
+    const formData = new FormData();
+
+    for (const [key, value] of Object.entries(data)) {
+      formData.append(key, value);
+    }
+
+    formData.append("locale", locale);
+    startTransition(() => formAction(formData));
   }
 
   return (
@@ -88,7 +106,14 @@ export function RegisterForm() {
           placeholder={t("newPasswordPlaceholder")}
         />
       </FieldGroup>
-      <Button type="submit" size="lg" className="mt-8 w-full">
+      {errorKey && <FieldError>{t(errorKey)}</FieldError>}
+      {state?.ok && <MutedText>{t(state.ok)}</MutedText>}
+      <Button
+        type="submit"
+        size="lg"
+        className="mt-8 w-full"
+        disabled={isPending}
+      >
         {t("createAccount")}
       </Button>
     </form>
